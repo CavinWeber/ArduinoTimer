@@ -1,9 +1,11 @@
 #include "Arduino.h"
 #include "Timer.h"
 
+/*
+For asynchronous checking of time state.
+*/
 bool Timer::isTriggered() {
   if (millis() - this->_startTime >= this->_duration) {
-    //    Serial.println("Timer marked as triggered.");
     _isTriggered = true;
     return true;
   }
@@ -12,12 +14,18 @@ bool Timer::isTriggered() {
   }
 }
 
+/*
+Resets and immediately begins timer again.
+*/
 void Timer::reset() {
   _startTime = millis();
   _isTriggered = false;
 }
 
-void Timer::setDuration(unsigned int t) {
+/*
+Changes the duration of an existing timer, resets its current value, and immediately starts it again.
+*/
+void Timer::setDuration(unsigned long t) {
   _duration = t;
   reset();
 }
