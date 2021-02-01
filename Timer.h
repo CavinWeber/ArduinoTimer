@@ -11,7 +11,7 @@ class Timer {  // Creates a timer object that returns true if the allotted durat
   public:
     bool isTriggered();
     void reset();
-    void setDuration(unsigned int t);
+    void setDuration(unsigned long t);
     Timer(unsigned int duration) {
       Serial.println("Timer constructed.");
       this->_duration = duration;
